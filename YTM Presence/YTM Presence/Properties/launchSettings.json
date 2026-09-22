@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "YTM Presence (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "YTM Presence (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

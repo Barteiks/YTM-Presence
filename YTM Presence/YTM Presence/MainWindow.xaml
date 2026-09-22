@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="YTM_Presence.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YTM_Presence"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="YTM Presence">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt" />
+    </Window.SystemBackdrop>
+
+    <Grid>
+
+        <Border 
+                
+                BorderThickness="1">
+
+            <Grid Margin="15" ColumnDefinitions="Auto, *">
+
+                <Border Grid.Column="0" 
+                        CornerRadius="8" 
+                        Width="140" 
+                        Height="140" 
+                        VerticalAlignment="Center"
+                        >
+                    <Image x:Name="coverImage" 
+                           Stretch="UniformToFill" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                </Border>
+
+                <Grid Grid.Column="1" 
+                      Margin="20,0,4,0" 
+                      RowDefinitions="*, Auto, Auto" 
+                      VerticalAlignment="Center">
+
+                    <StackPanel Grid.Row="0" Margin="0,0,0,16">
+                        <TextBlock x:Name="titleText"
+                                   Text="Tytuł utworu"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   TextTrimming="CharacterEllipsis"
+                                   MaxLines="1"/>
+
+                        <TextBlock x:Name="artistText"
+                                   Text="Wykonawca"
+                                   FontSize="14"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Margin="0,4,0,0"
+                                   TextTrimming="CharacterEllipsis"
+                                   MaxLines="1"/>
+                    </StackPanel>
+
+                    <Slider x:Name="trackSlider"
+                            Grid.Row="1"
+                            IsHitTestVisible="False"
+                            Minimum="0"
+                            Maximum="100"
+                            Value="0"
+                            IsThumbToolTipEnabled="False"
+                            FocusVisualMargin="0"
+                            Margin="0,0,0,4"/>
+
+                    <Grid Grid.Row="2" ColumnDefinitions="*, *">
+                        <TextBlock x:Name="currentTimeText" 
+                                   Grid.Column="0" 
+                                   Text="0:00" 
+                                   FontSize="11" 
+                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                        <TextBlock x:Name="totalTimeText" 
+                                   Grid.Column="1" 
+                                   Text="0:00" 
+                                   HorizontalAlignment="Right" 
+                                   FontSize="11" 
+                                   Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+        <local:TrayIcon/>
+    </Grid>
+</Window>

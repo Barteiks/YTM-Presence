@@ -1,0 +1,33 @@
+<UserControl
+    x:Class="YTM_Presence.TrayIcon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:tb="using:H.NotifyIcon">
+
+    <tb:TaskbarIcon
+        x:Name="TaskbarIcon"
+        ToolTipText="YouTube Music - Discord RPC"
+        ContextMenuMode="SecondWindow"
+        LeftClickCommand="{x:Bind OpenWindowCommand}"
+        MenuActivation="LeftOrRightClick"
+        IconSource="Assets/Icon.ico">
+        <tb:TaskbarIcon.ContextFlyout>
+            <MenuFlyout>
+
+                <MenuFlyoutItem
+                    Text="Open"
+                    Command="{x:Bind OpenWindowCommand}"/>
+
+                <ToggleMenuFlyoutItem
+                    Text="Start with windows"
+                    IsChecked="{x:Bind IsStartupEnabled, Mode=TwoWay}"
+                    Command="{x:Bind ToggleStartupCommand}"/>
+
+                <MenuFlyoutItem
+                    Text="Exit"
+                    Command="{x:Bind ExitApplicationCommand}"/>
+
+            </MenuFlyout>
+        </tb:TaskbarIcon.ContextFlyout>
+    </tb:TaskbarIcon>
+</UserControl>
